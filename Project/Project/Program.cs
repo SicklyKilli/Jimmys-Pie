@@ -8,8 +8,25 @@ namespace Project
 {
     class Program
     {
-        static void Main(string[] args)
+
+        public static void Main()
         {
+            String[] menuItems = new string[] { "Bread", "Meat", "Salad", "Sauces??" };
+            Nav();
+        }
+
+        public static void Hello()
+        {
+            string name = "";
+            Console.WriteLine("Hello Welcome to SandBread");
+            Console.WriteLine("Whos the order for today?");
+            name = Console.ReadLine();
+            Console.WriteLine("Hello " + name);
+        }
+
+        public static void Nav()
+        {
+            Hello();
         }
     }
 }
