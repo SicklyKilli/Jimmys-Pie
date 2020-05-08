@@ -12,6 +12,7 @@ Bread:
 -Grain
 -Garlic
 -Cheese
+-GF
 
 Meat:
 -Chicken
@@ -20,6 +21,7 @@ Meat:
 -Ham
 -Meatballs
 -Falafel
+-tofu
 
 Salad:
 -Lettuce
@@ -41,6 +43,24 @@ Sauce:
 -Sweet Chilli
 -Mayonnaise
 
+Cheese
+-Mozzarella
+- Cheddar
+- Swiss
+- American
+
+Sides
+-Drinks - small, medium, large
+-Cookies - choc chip, ….
+-Muffin
+Snacks: chips etc...
+
+
+Menu & sandwich making
+General questions
+Payment options, pricing - Killian
+Any sides?
+Another sandwich?
 
 using System;
 using System.Collections.Generic;
