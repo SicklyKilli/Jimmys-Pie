@@ -1,0 +1,88 @@
+Chat with an AI
+
+General Questions:
+
+Questions that link back:
+
+
+Menu:
+
+Bread:
+-White
+-Grain
+-Garlic
+-Cheese
+
+Meat:
+-Chicken
+-Pork
+-Beef
+-Ham
+-Meatballs
+-Falafel
+
+Salad:
+-Lettuce
+-Spinach
+-Tomato
+-Carrots
+-Onions
+-Capcisum
+-Olives
+-Pickles
+-Beetroot
+-Mushrooms
+
+Sauce:
+-Barbecue
+-Aioli
+-Thousand Island
+-Ranch
+-Sweet Chilli
+-Mayonnaise
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Project
+{
+    class Program
+    {
+        private string name;
+        static void Main()
+        {
+	// Google AI Interview questions ??
+
+	// main() here ..
+	// do we need methods for anything else?
+
+String answer;
+Const QUESTIONS = 3
+String answers [QUESTIONS];
+	String[] menuItems = new string[QUESTIONS] {"What Bread?", "You Meat?", "Salads?", "Sauces??"};
+	// Display each question and get user answer
+           For (loop = 0; loop < QUESTIONS; loop++)
+	{
+		Console.WriteLine($”{menuitems[loop]}”);
+		// get user input and store in another string array
+Answer = ConsoleReadline();
+// store answer in answers array
+Answers [loop] = answer
+	}
+	// we can make a while loop that goes forever asking random questions
+	// we could have link questions in separate array
+        }
+
+        public void Hello()
+        {
+            Console.WriteLine("Hello Welcome to SandBread");
+            Console.WriteLine("Whos the order for today?");
+            name = Console.ReadLine();
+            Console.WriteLine("Hello", name);
+        }
+    }
+}
