@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    class Program
+    public class Program
     {
+        private Dictionary<string, double> Bread = new Dictionary<string, double>();
 
-        public static void Main()
+        public void Main()
         {
+
+            Setprices();
             String[] menuItems = new string[] { "Bread", "Meat", "Salad", "Sauces??" };
             Nav();
         }
 
-        public static void Hello()
+        public void Hello()
         {
             string name = "";
             Console.WriteLine("Hello Welcome to SandBread");
@@ -24,9 +27,20 @@ namespace Project
             Console.WriteLine("Hello " + name);
         }
 
-        public static void Nav()
+        public void Nav()
         {
             Hello();
+        }
+
+        public void Setprices()
+        {
+            
+            Bread.Add("White", .80);
+            Bread.Add("Grain", .90);
+            Bread.Add("Garlic", 1.0);
+            Bread.Add("Cheese", 1.0);
+            Console.WriteLine(Bread["White"]);
+
         }
     }
 }
