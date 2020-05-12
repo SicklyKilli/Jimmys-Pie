@@ -18,10 +18,12 @@ namespace Project
             String[] answers = new string[NUMQUESTIONS];
 
             // Put the questions in each element of the array
-            questions[0] = "Which BREAD would you like ?";
-            questions[1] = "Which MEAT would you like ?";
-            questions[2] = "Any salads ?";
-            questions[3] = "Which sauces do you like ? (Choose 1)";
+            // These are side/link questions not related to the sandwich menu
+            // *** All edits or contributions to the questions are welcome
+            questions[0] = "What style of music do you like ?";
+            questions[1] = "Have you ever considered going vegan ?";
+            questions[2] = "Are you in a relationship or single ?";
+            questions[3] = "What's your favourite colour ?";
             questions[4] = "What's your name by the way ?";
             questions[5] = "Where were you born ?";
             questions[6] = "How old are you ?";
