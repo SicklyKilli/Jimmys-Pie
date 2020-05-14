@@ -10,7 +10,7 @@ namespace Project
     {
 
 
-        static void Main(string[] args)
+        private static void Menu(string[] args)
         {
             string name, bread, meat, salad = "", saladentered, sauce ="", sauceentered, cheese="", cheeseentered, sides = "", sidesentered;
           
