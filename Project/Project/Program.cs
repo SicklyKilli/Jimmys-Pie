@@ -8,14 +8,12 @@ namespace Project
 {
     class Program
     {
-
-<<<<<<< HEAD
         public static void Main()
         {
             // Global variables
             const int NUMQUESTIONS = 10;
-            
-            String[] questions = new string [NUMQUESTIONS];
+
+            String[] questions = new string[NUMQUESTIONS];
             String[] answers = new string[NUMQUESTIONS];
 
             // Put the questions in each element of the array
@@ -39,64 +37,64 @@ namespace Project
             int loop = 0;
             do
             {
+                Menu();
+
                 // Show a question
                 Showquestion(questions, loop);
                 // Get user input for answer and store in 'answers' array
-                answers[loop] = Console.ReadLine();
+                answers[loop] = Console.ReadLine();               
 
                 loop++;         // Go to next question
                 if (loop > NUMQUESTIONS)
                 {
                     loop = 0;
+                    Results(questions, answers, NUMQUESTIONS);
                 }
             }
             // While Loop forever
             while (true);
 
-            
+
             // Unreachable code - but left in anyway
             Console.WriteLine("\n\nPress ENTER to exit the program ...");
             Console.ReadLine();
         }
-=======
->>>>>>> Menu
-
-        private static void Menu(string[] args)
+        private static void Menu()
         {
-            string name, bread, meat, salad = "", saladentered, sauce ="", sauceentered, cheese="", cheeseentered, sides = "", sidesentered;
-          
-          
-            
-                        Console.WriteLine("Hello Welcome to SandBread");
-                        Console.WriteLine("Whos the order for today?");
-                        name = Console.ReadLine();
-                        Console.WriteLine("Hello " + name);
+            string name, bread, meat, salad = "", saladentered, sauce = "", sauceentered, cheese = "", cheeseentered, sides = "", sidesentered;
+
+
+
+            Console.WriteLine("Hello Welcome to SandBread");
+            Console.WriteLine("Whos the order for today?");
+            name = Console.ReadLine();
+            Console.WriteLine("Hello " + name);
             Console.ReadLine();
 
-                        Console.WriteLine("What Bread would you like? We Have:");
-                        Console.WriteLine("White");
-                        Console.WriteLine("Grain");
-                        Console.WriteLine("Garlic");
-                        Console.WriteLine("Cheese");
-                        Console.WriteLine("Gluten Free");
+            Console.WriteLine("What Bread would you like? We Have:");
+            Console.WriteLine("White");
+            Console.WriteLine("Grain");
+            Console.WriteLine("Garlic");
+            Console.WriteLine("Cheese");
+            Console.WriteLine("Gluten Free");
 
-                        bread = Console.ReadLine();
-                        Console.WriteLine(bread + " bread it is");
+            bread = Console.ReadLine();
+            Console.WriteLine(bread + " bread it is");
             Console.ReadLine();
 
-                        Console.WriteLine("What Meat would you like? We have:");
-                        Console.WriteLine("Chicken");
-                        Console.WriteLine("Pork");
-                        Console.WriteLine("Beef");
-                        Console.WriteLine("Ham");
-                        Console.WriteLine("Meatballs");
-                        Console.WriteLine("Falafel");
-                        Console.WriteLine("Tofu");
+            Console.WriteLine("What Meat would you like? We have:");
+            Console.WriteLine("Chicken");
+            Console.WriteLine("Pork");
+            Console.WriteLine("Beef");
+            Console.WriteLine("Ham");
+            Console.WriteLine("Meatballs");
+            Console.WriteLine("Falafel");
+            Console.WriteLine("Tofu");
 
             meat = Console.ReadLine();
             Console.WriteLine(meat + " for the meat");
             Console.ReadLine();
-                       
+
             Console.WriteLine("What Salads would you like? We have:");
             Console.WriteLine("Lettuce");
             Console.WriteLine("Spinach");
@@ -107,16 +105,16 @@ namespace Project
             Console.WriteLine("Olives");
             Console.WriteLine("Pickles");
             Console.WriteLine("Beetroot");
-            Console.WriteLine("Mushrooms");         
-            
+            Console.WriteLine("Mushrooms");
+
             do
             {
                 saladentered = Console.ReadLine();
-                
+
                 salad = salad + " " + saladentered;
 
 
-            } while (saladentered != "") ;
+            } while (saladentered != "");
 
             Console.WriteLine("your salads are" + salad);
             Console.ReadLine();
@@ -138,7 +136,7 @@ namespace Project
 
             } while (sauceentered != "");
 
-            
+
 
             Console.WriteLine("Your sauces are" + sauce);
             Console.ReadLine();
@@ -182,20 +180,27 @@ namespace Project
             Console.ReadLine();
         }
 
+       
+
         public static void Showquestion(String[] questions, int loop)
         {
             Console.WriteLine(questions[loop]);
         }
 
-        public static void Results(string[] questions)
+        public static void Results(string[] questions, string[]answers, int NUMQUESTIONS)
         {
             // Show all the questions with the answer next to it
-            for (loop = 0; loop < NUMQUESTIONS; loop++)
+            for (int loop = 0; loop < NUMQUESTIONS; loop++)
             {
                 Console.Write($"Question {loop + 1}:".PadLeft(12));
                 Console.Write($"{questions[loop]}".PadLeft(40));
                 Console.WriteLine($"{answers[loop]}".PadLeft(10));
             }
+        }
+
+        public static void Nav()
+        {
+            Console.WriteLine("Nav() - Welcome\n");
         }
     }
 }
