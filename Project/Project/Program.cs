@@ -8,33 +8,28 @@ namespace Project
 {
     class Program
     {
-
         public static void Main()
         {
-            var sideMenu = new Dictionary<string, double>();
-            sideMenu.Add("Sweet Potato Fries", 4.00);
-            sideMenu.Add("Smoked Cheese Champ Mash", 4.00);
-            sideMenu.Add("Homemade Sumo Wedges", 4.00);
-            sideMenu.Add("Fries", 3.20);
-            sideMenu.Add("Spicy Fries", 3.20);
-            sideMenu.Add("Onion Rings", 2.50);
-            sideMenu.Add("Rice", 2.50);
-            sideMenu.Add("Regular Soup", 5.00);
-            sideMenu.Add("Vegan Soup", 6.00);
-            sideMenu.Add("Cheese Roll", 2.50);
-        
+            Dictionary<string, double> sideMenu = new Dictionary<string, double>()
+            {
+                {"Sweet Potato Fries", 4.00},
+                {"Smoked Cheese Champ Mash", 4.00},
+                {"Homemade Sumo Wedges", 4.00},
+                {"Fries", 3.20},
+                {"Spicy Fries", 3.20},
+                {"Onion Rings", 2.50},
+                {"Rice", 2.50},
+                {"Regular Soup", 5.00},
+                {"Vegan Soup", 6.00},
+                {"Cheese Roll", 2.50}
+            };
 
-
+            foreach (KeyValuePair<String, double> pair in sideMenu)
+            {
+                Console.WriteLine("{0}, {1:C}",pair.Key, pair.Value);
+            }       
+            Console.ReadLine();
         }
-
-        public static void Hello()
-        {
-            string name = "";
-            Console.WriteLine("Hello Welcome to SandBread");
-            Console.WriteLine("Whos the order for today?");
-            name = Console.ReadLine();
-            Console.WriteLine("Hello " + name);
-        }        
 
 
         public static void Sides()
