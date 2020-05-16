@@ -41,6 +41,19 @@ Sauce:
 -Sweet Chilli
 -Mayonnaise
 
+Sides: 
+- Sweet Potato Fries
+- Smoked Cheese Champ Mash
+- Homemade Sumo Wedges
+- Fries
+- Spicy Fries
+- Onion Rings
+- Rice
+- Cookies
+- Regular Soup
+- Vegan Soup
+- Cheese Roll
+
 
 using System;
 using System.Collections.Generic;
