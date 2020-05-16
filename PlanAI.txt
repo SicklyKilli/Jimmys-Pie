@@ -42,17 +42,17 @@ Sauce:
 -Mayonnaise
 
 Sides: 
-- Sweet Potato Fries
-- Smoked Cheese Champ Mash
-- Homemade Sumo Wedges
-- Fries
-- Spicy Fries
-- Onion Rings
-- Rice
-- Cookies
-- Regular Soup
-- Vegan Soup
-- Cheese Roll
+- Sweet Potato Fries (4.00)
+- Smoked Cheese Champ Mash (4.00)
+- Homemade Sumo Wedges (4.00)
+- Fries (3.20)
+- Spicy Fries (3.20)
+- Onion Rings (2.50)
+- Rice (2.50)
+- Cookies (2.50)
+- Regular Soup (5.00)
+- Vegan Soup (6.00)
+- Cheese Roll (4.50)
 
 
 using System;
