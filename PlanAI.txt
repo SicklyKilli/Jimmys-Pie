@@ -52,7 +52,7 @@ Sides:
 - Cookies (2.50)
 - Regular Soup (5.00)
 - Vegan Soup (6.00)
-- Cheese Roll (4.50)
+- Cheese Roll (2.50)
 
 
 using System;
