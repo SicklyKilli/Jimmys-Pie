@@ -13,22 +13,15 @@ namespace Project
             // Global variables
             const int NUMQUESTIONS = 10;
 
-            String[] questions = new string[NUMQUESTIONS];
+            
             String[] answers = new string[NUMQUESTIONS];
 
             // Put the questions in each element of the array
             // These are side/link questions not related to the sandwich menu
             // *** All edits or contributions to the questions are welcome
-            questions[0] = "What style of music do you like ?";
-            questions[1] = "Have you ever considered going vegan ?";
-            questions[2] = "Are you in a relationship or single ?";
-            questions[3] = "What's your favourite colour ?";
-            questions[4] = "What's your name by the way ?";
-            questions[5] = "Where were you born ?";
-            questions[6] = "How old are you ?";
-            questions[7] = "Are you a guy or a girl ?";
-            questions[8] = "What is your birth month ?";
-            questions[9] = "Do you like sports?";
+
+	    string[] questions = SetQuestions(NUMQUESTIONS);
+            
 
             // PROGRAM START - SHOW title/welcome page etc.
             Nav();
@@ -59,6 +52,23 @@ namespace Project
             Console.WriteLine("\n\nPress ENTER to exit the program ...");
             Console.ReadLine();
         }
+	
+	public static string[] SetQuestions(int n)
+        {
+            string[] q = new string[n];
+            q[0] = "What style of music do you like ?";
+            q[1] = "Have you ever considered going vegan ?";
+            q[2] = "Are you in a relationship or single ?";
+            q[3] = "What's your favourite colour ?";
+            q[4] = "What's your name by the way ?";
+            q[5] = "Where were you born ?";
+            q[6] = "How old are you ?";
+            q[7] = "Are you a guy or a girl ?";
+            q[8] = "What is your birth month ?";
+            q[9] = "Do you like sports?";
+            return q;
+        }
+
         private static void Menu()
         {
             string name, bread, meat, salad = "", saladentered, sauce = "", sauceentered, cheese = "", cheeseentered, sides = "", sidesentered;
