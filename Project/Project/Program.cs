@@ -14,13 +14,13 @@ namespace Project
             const int NUMQUESTIONS = 10;
 
             
-            String[] answers = new string[NUMQUESTIONS];
+            string[] answers = new string[NUMQUESTIONS];
 
             // Put the questions in each element of the array
             // These are side/link questions not related to the sandwich menu
             // *** All edits or contributions to the questions are welcome
 
-	    string[] questions = SetQuestions(NUMQUESTIONS);
+	        string[] questions = SetQuestions(NUMQUESTIONS);
             
 
             // PROGRAM START - SHOW title/welcome page etc.
@@ -33,7 +33,8 @@ namespace Project
                 Menu();
 
                 // Show a question
-                Showquestion(questions, loop);
+                ShowQuestion(questions, loop);
+
                 // Get user input for answer and store in 'answers' array
                 answers[loop] = Console.ReadLine();               
 
@@ -41,7 +42,7 @@ namespace Project
                 if (loop > NUMQUESTIONS)
                 {
                     loop = 0;
-                    Results(questions, answers, NUMQUESTIONS);
+                    // Results(questions, answers, NUMQUESTIONS);
                 }
             }
             // While Loop forever
@@ -53,7 +54,7 @@ namespace Project
             Console.ReadLine();
         }
 	
-	public static string[] SetQuestions(int n)
+	    public static string[] SetQuestions(int n)
         {
             string[] q = new string[n];
             q[0] = "What style of music do you like ?";
@@ -66,6 +67,7 @@ namespace Project
             q[7] = "Are you a guy or a girl ?";
             q[8] = "What is your birth month ?";
             q[9] = "Do you like sports?";
+
             return q;
         }
 
@@ -192,7 +194,7 @@ namespace Project
 
        
 
-        public static void Showquestion(String[] questions, int loop)
+        public static void ShowQuestion(String[] questions, int loop)
         {
             Console.WriteLine(questions[loop]);
         }
