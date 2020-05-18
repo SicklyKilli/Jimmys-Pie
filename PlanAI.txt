@@ -106,3 +106,15 @@ Answers [loop] = answer
         }
     }
 }
+
+
+//Killian leaving this here as a callback if needed
+
+        public static void Checkitem(Dictionary<string, double> Bread)
+        {
+            foreach (KeyValuePair<string, double> input in Bread)
+            {
+                Console.WriteLine("So you have chosen" + input);
+                Console.ReadLine();
+            }
+        }
