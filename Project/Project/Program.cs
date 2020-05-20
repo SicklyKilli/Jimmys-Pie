@@ -22,28 +22,28 @@ namespace Project
             Dictionary<string, double> Filling = new Dictionary<string, double>();
             Dictionary<string, double> Cheese = new Dictionary<string, double>();
             Dictionary<string, double> Sauce = new Dictionary<string, double>();
-
-            Dictionary<string, double> sideMenu = new Dictionary<string, double>();
+            Dictionary<string, double> Sides = new Dictionary<string, double>();
 
             Setpricessauce(Sauce);
             Setpricescheese(Cheese);
             Setpricesbread(Bread);
             Setpricessalad(Salad);
-            Setpricesfilling(Filling);           
+            Setpricesfilling(Filling);
+            SideSetPrice(Sides);
 
             do
             {
                 Console.ResetColor();
                 Console.Clear();
-                Nav();                
-                Takeorder(Bread, Salad, Filling, Cheese, Sauce);
+                Nav();
+                Takeorder(Bread, Salad, Filling, Cheese, Sauce, Sides);
             }
             while (true);
 
             // Console.ReadLine();           
-           
-        }	
-	    public static void SetQuestions(string[] questions, int n)
+
+        }
+        public static void SetQuestions(string[] questions, int n)
         {
             // string[] q = new string[n];
             questions[0] = "Hey I was wondering what style of music do you like? ";
@@ -55,7 +55,7 @@ namespace Project
             questions[6] = "Nice haircut you got there - How old are you? ";
             questions[7] = "Excuse me for asking ... What gender do you identify with, male or female? ";
             questions[8] = "What is your birth month? ";
-            questions[9] = "Which sport do you like? ";           
+            questions[9] = "Which sport do you like? ";
         }
 
         public static void SetLinks(String[] links, int n)
@@ -80,7 +80,7 @@ namespace Project
             int quesNum;
             bool chosen;
             for (int loop = 0; loop < 2; loop++)
-            {                
+            {
                 chosen = false;
                 do
                 {
@@ -95,7 +95,7 @@ namespace Project
                         links[quesNum] = links[quesNum].Replace("~", answers[quesNum].ToUpper());
                         chosen = true;
                     }
-                    else if ((answers[quesNum]!="0") && (extended[quesNum] == "0"))
+                    else if ((answers[quesNum] != "0") && (extended[quesNum] == "0"))
                     {
                         // Ask link/extended question instead
                         Console.BackgroundColor = ConsoleColor.Red;
@@ -103,7 +103,7 @@ namespace Project
                         extended[quesNum] = Console.ReadLine();
                         chosen = true;
                     }
-                    
+
                 }
                 while (chosen == false);
             }
@@ -124,7 +124,7 @@ namespace Project
         {
             Console.WriteLine("");
         }
-        public static void Takeorder(Dictionary<string, double> Bread, Dictionary<string, double> Salad, Dictionary<string, double> Filling, Dictionary<string, double> Cheese, Dictionary<string, double> Sauce)
+        public static void Takeorder(Dictionary<string, double> Bread, Dictionary<string, double> Salad, Dictionary<string, double> Filling, Dictionary<string, double> Cheese, Dictionary<string, double> Sauce, Dictionary<string, double> Sides)
         {
             double total = 0;
             string temp = "";
@@ -154,7 +154,7 @@ namespace Project
             Console.WriteLine("Hello " + name + ". Lets make a sandwich!\n");
             // Console.ReadLine();
             Thread.Sleep(500);
-                        
+
             foreach (KeyValuePair<string, double> item in Bread)
             {
                 Console.WriteLine(item.Key);
@@ -231,7 +231,7 @@ namespace Project
 
             AskQuestion(questions, links, answers, extended, NUMQUESTIONS);
             AskQuestion(questions, links, answers, extended, NUMQUESTIONS);
-            
+
             //sauce ---------------------------------------------------------------------------------
             foreach (KeyValuePair<string, double> item in Sauce)
             {
@@ -254,9 +254,16 @@ namespace Project
 
             AskQuestion(questions, links, answers, extended, NUMQUESTIONS);
             AskQuestion(questions, links, answers, extended, NUMQUESTIONS);
-           
+
             //sides --------------------------------------------------------------------------------
             Console.WriteLine("And finally would you like any sides?\n");
+            Console.WriteLine("We have: \n");
+
+            foreach (KeyValuePair<String, double> item in Sides)
+            {
+                Console.WriteLine("$" + item.Key);
+            }
+
             Console.WriteLine("We have drinks, The sizes are small, medium or large");
             Console.WriteLine("Cookies: Choc chip, M&M and Oat & Raisin");
             Console.WriteLine("Muffins: Choc chip, Boysenberry and Banana\n");
@@ -289,35 +296,31 @@ namespace Project
             //Payment(ref total);
         }
 
-        public static void SideMenu(Dictionary<string, double> sideMenu)
+        public static void SideSetPrice(Dictionary<string, double> Sides)
         {
-            sideMenu.Add("Sweet Potato Fries", 4.00);
-            sideMenu.Add("Smoked Cheese Champ Mash", 4.00);
-            sideMenu.Add("Homemade Sumo Wedges", 4.00);
-            sideMenu.Add("Fries", 3.20);
-            sideMenu.Add("Spicy Fries", 3.20);
-            sideMenu.Add("Onion Rings", 2.50);
-            sideMenu.Add("Rice", 2.50);
-            sideMenu.Add("Regular Soup", 5.00);
-            sideMenu.Add("Vegan Soup", 6.00);
-            sideMenu.Add("Cheese Roll", 2.50);
+            Sides.Add("Sweet Potato Fries", 4.00);
+            Sides.Add("Smoked Cheese Champ Mash", 4.00);
+            Sides.Add("Homemade Sumo Wedges", 4.00);
+            Sides.Add("Fries", 3.20);
+            Sides.Add("Spicy Fries", 3.20);
+            Sides.Add("Onion Rings", 2.50);
+            Sides.Add("Rice", 2.50);
+            Sides.Add("Regular Soup", 5.00);
+            Sides.Add("Vegan Soup", 6.00);
+            Sides.Add("Cheese Roll", 2.50);
         }
 
 
         public static void Setpricesbread(Dictionary<string, double> Bread)
         {
-
             Bread.Add("White", .80);
             Bread.Add("Grain", .90);
             Bread.Add("Garlic", 1.00);
             Bread.Add("Cheese", 1.00);
             Bread.Add("Gluten-Free", 1.20);
-
-
         }
         public static void Setpricessalad(Dictionary<string, double> Salad)
         {
-
             Salad.Add("Lettuce", 0);
             Salad.Add("Spinach", .60);
             Salad.Add("Tomato", .30);
@@ -328,13 +331,9 @@ namespace Project
             Salad.Add("Pickles", .10);
             Salad.Add("Beetroot", .20);
             Salad.Add("Mushrooms", .30);
-
-
-
         }
         public static void Setpricesfilling(Dictionary<string, double> Filling)
         {
-
             Filling.Add("Chicken", 1.75);
             Filling.Add("Beef", 2.00);
             Filling.Add("Pork Belly", 4.50);
@@ -347,7 +346,6 @@ namespace Project
 
         public static void Setpricescheese(Dictionary<string, double> Cheese)
         {
-
             Cheese.Add("Cheddar", .50);
             Cheese.Add("Mozzarella", .80);
             Cheese.Add("Swiss", .80);
@@ -355,11 +353,9 @@ namespace Project
             Cheese.Add("Gruyere", 1.00);
             Cheese.Add("Feta", 1.00);
             Cheese.Add("Dairy-Free", 1.20);
-
         }
         public static void Setpricessauce(Dictionary<string, double> Sauce)
         {
-
             Sauce.Add("BBQ", .50);
             Sauce.Add("Aioli", .80);
             Sauce.Add("Mayonnaise", .80);
@@ -370,144 +366,144 @@ namespace Project
 
 
 
-            //private static void Menu()
-            //{
-            //    string name, bread, meat, salad = "", saladentered, sauce = "", sauceentered, cheese = "", cheeseentered, sides = "", sidesentered;
+        //private static void Menu()
+        //{
+        //    string name, bread, meat, salad = "", saladentered, sauce = "", sauceentered, cheese = "", cheeseentered, sides = "", sidesentered;
 
 
 
-            //    Console.WriteLine("Hello Welcome to SandBread");
-            //    Console.WriteLine("Whos the order for today?");
-            //    name = Console.ReadLine();
-            //    Console.WriteLine("Hello " + name);
-            //    Console.ReadLine();
+        //    Console.WriteLine("Hello Welcome to SandBread");
+        //    Console.WriteLine("Whos the order for today?");
+        //    name = Console.ReadLine();
+        //    Console.WriteLine("Hello " + name);
+        //    Console.ReadLine();
 
-            //    Console.WriteLine("What Bread would you like? We Have:");
-            //    Console.WriteLine("White");
-            //    Console.WriteLine("Grain");
-            //    Console.WriteLine("Garlic");
-            //    Console.WriteLine("Cheese");
-            //    Console.WriteLine("Gluten Free");
+        //    Console.WriteLine("What Bread would you like? We Have:");
+        //    Console.WriteLine("White");
+        //    Console.WriteLine("Grain");
+        //    Console.WriteLine("Garlic");
+        //    Console.WriteLine("Cheese");
+        //    Console.WriteLine("Gluten Free");
 
-            //    bread = Console.ReadLine();
-            //    Console.WriteLine(bread + " bread it is");
-            //    Console.ReadLine();
+        //    bread = Console.ReadLine();
+        //    Console.WriteLine(bread + " bread it is");
+        //    Console.ReadLine();
 
-            //    Console.WriteLine("What Meat would you like? We have:");
-            //    Console.WriteLine("Chicken");
-            //    Console.WriteLine("Pork");
-            //    Console.WriteLine("Beef");
-            //    Console.WriteLine("Ham");
-            //    Console.WriteLine("Meatballs");
-            //    Console.WriteLine("Falafel");
-            //    Console.WriteLine("Tofu");
+        //    Console.WriteLine("What Meat would you like? We have:");
+        //    Console.WriteLine("Chicken");
+        //    Console.WriteLine("Pork");
+        //    Console.WriteLine("Beef");
+        //    Console.WriteLine("Ham");
+        //    Console.WriteLine("Meatballs");
+        //    Console.WriteLine("Falafel");
+        //    Console.WriteLine("Tofu");
 
-            //    meat = Console.ReadLine();
-            //    Console.WriteLine(meat + " for the meat");
-            //    Console.ReadLine();
+        //    meat = Console.ReadLine();
+        //    Console.WriteLine(meat + " for the meat");
+        //    Console.ReadLine();
 
-            //    Console.WriteLine("What Salads would you like? We have:");
-            //    Console.WriteLine("Lettuce");
-            //    Console.WriteLine("Spinach");
-            //    Console.WriteLine("Tomato");
-            //    Console.WriteLine("Carrots");
-            //    Console.WriteLine("Onion");
-            //    Console.WriteLine("Capsicum");
-            //    Console.WriteLine("Olives");
-            //    Console.WriteLine("Pickles");
-            //    Console.WriteLine("Beetroot");
-            //    Console.WriteLine("Mushrooms");
+        //    Console.WriteLine("What Salads would you like? We have:");
+        //    Console.WriteLine("Lettuce");
+        //    Console.WriteLine("Spinach");
+        //    Console.WriteLine("Tomato");
+        //    Console.WriteLine("Carrots");
+        //    Console.WriteLine("Onion");
+        //    Console.WriteLine("Capsicum");
+        //    Console.WriteLine("Olives");
+        //    Console.WriteLine("Pickles");
+        //    Console.WriteLine("Beetroot");
+        //    Console.WriteLine("Mushrooms");
 
-            //    do
-            //    {
-            //        saladentered = Console.ReadLine();
+        //    do
+        //    {
+        //        saladentered = Console.ReadLine();
 
-            //        salad = salad + " " + saladentered;
-
-
-            //    } while (saladentered != "");
-
-            //    Console.WriteLine("your salads are" + salad);
-            //    Console.ReadLine();
-
-            //    Console.WriteLine("What sauces would you like? We have:");
-            //    Console.WriteLine("Barbecue");
-            //    Console.WriteLine("Aioli");
-            //    Console.WriteLine("Thousand Island");
-            //    Console.WriteLine("Ranch");
-            //    Console.WriteLine("Sweet Chilli");
-            //    Console.WriteLine("Mayonaise");
-
-            //    do
-            //    {
-            //        sauceentered = Console.ReadLine();
-
-            //        sauce = sauce + " " + sauceentered;
+        //        salad = salad + " " + saladentered;
 
 
-            //    } while (sauceentered != "");
+        //    } while (saladentered != "");
+
+        //    Console.WriteLine("your salads are" + salad);
+        //    Console.ReadLine();
+
+        //    Console.WriteLine("What sauces would you like? We have:");
+        //    Console.WriteLine("Barbecue");
+        //    Console.WriteLine("Aioli");
+        //    Console.WriteLine("Thousand Island");
+        //    Console.WriteLine("Ranch");
+        //    Console.WriteLine("Sweet Chilli");
+        //    Console.WriteLine("Mayonaise");
+
+        //    do
+        //    {
+        //        sauceentered = Console.ReadLine();
+
+        //        sauce = sauce + " " + sauceentered;
 
 
-
-            //    Console.WriteLine("Your sauces are" + sauce);
-            //    Console.ReadLine();
-
-            //    Console.WriteLine("What chesse would you like? We have:");
-            //    Console.WriteLine("Mozzarella");
-            //    Console.WriteLine("Cheddar");
-            //    Console.WriteLine("Swiss");
-            //    Console.WriteLine("American");
-
-            //    do
-            //    {
-            //        cheeseentered = Console.ReadLine();
-
-            //        cheese = cheese + " " + cheeseentered;
-
-
-            //    } while (cheeseentered != "");
-
-            //    Console.WriteLine("Your cheese's are" + cheese);
-            //    Console.ReadLine();
-
-            //    Console.WriteLine("And finally would you like any sides? We have");
-            //    Console.WriteLine("Drinks, The sizes are small, medium or large");
-            //    Console.WriteLine("Cookies: Choc chip, M&M and Oat & Raisin");
-            //    Console.WriteLine("Muffins: Choc chip, Boysenberry and Banana");
-
-            //    do
-            //    {
-            //        sidesentered = Console.ReadLine();
-
-            //        sides = sides + " " + sidesentered;
-
-
-            //    } while (sidesentered != "");
-
-            //    Console.WriteLine("Your sides are" + sides);
-            //    Console.ReadLine();
-
-            //    Console.WriteLine("Your Order is a " + bread + " bread with " + meat + " for the meat and" + salad + "for the salad," + sauce + "sauce and" + cheese + "for the cheese and" + sides + "for the sides");
-            //    Console.ReadLine();
-            //}
+        //    } while (sauceentered != "");
 
 
 
+        //    Console.WriteLine("Your sauces are" + sauce);
+        //    Console.ReadLine();
+
+        //    Console.WriteLine("What chesse would you like? We have:");
+        //    Console.WriteLine("Mozzarella");
+        //    Console.WriteLine("Cheddar");
+        //    Console.WriteLine("Swiss");
+        //    Console.WriteLine("American");
+
+        //    do
+        //    {
+        //        cheeseentered = Console.ReadLine();
+
+        //        cheese = cheese + " " + cheeseentered;
 
 
-            //public static void Results(string[] questions, string[]answers, int NUMQUESTIONS)
-            //{
-            //    // Show all the questions with the answer next to it
-            //    for (int loop = 0; loop < NUMQUESTIONS; loop++)
-            //    {
-            //        Console.Write($"Question {loop + 1}:".PadLeft(12));
-            //        Console.Write($"{questions[loop]}".PadLeft(40));
-            //        Console.WriteLine($"{answers[loop]}".PadLeft(10));
-            //    }
-            //}
+        //    } while (cheeseentered != "");
+
+        //    Console.WriteLine("Your cheese's are" + cheese);
+        //    Console.ReadLine();
+
+        //    Console.WriteLine("And finally would you like any sides? We have");
+        //    Console.WriteLine("Drinks, The sizes are small, medium or large");
+        //    Console.WriteLine("Cookies: Choc chip, M&M and Oat & Raisin");
+        //    Console.WriteLine("Muffins: Choc chip, Boysenberry and Banana");
+
+        //    do
+        //    {
+        //        sidesentered = Console.ReadLine();
+
+        //        sides = sides + " " + sidesentered;
 
 
-        }
+        //    } while (sidesentered != "");
+
+        //    Console.WriteLine("Your sides are" + sides);
+        //    Console.ReadLine();
+
+        //    Console.WriteLine("Your Order is a " + bread + " bread with " + meat + " for the meat and" + salad + "for the salad," + sauce + "sauce and" + cheese + "for the cheese and" + sides + "for the sides");
+        //    Console.ReadLine();
+        //}
+
+
+
+
+
+        //public static void Results(string[] questions, string[]answers, int NUMQUESTIONS)
+        //{
+        //    // Show all the questions with the answer next to it
+        //    for (int loop = 0; loop < NUMQUESTIONS; loop++)
+        //    {
+        //        Console.Write($"Question {loop + 1}:".PadLeft(12));
+        //        Console.Write($"{questions[loop]}".PadLeft(40));
+        //        Console.WriteLine($"{answers[loop]}".PadLeft(10));
+        //    }
+        //}
+
+
+    }
 }
 
 
@@ -517,4 +513,4 @@ namespace Project
 
 
 
-            
+
