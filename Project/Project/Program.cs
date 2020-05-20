@@ -9,9 +9,14 @@ namespace Project
 {
     class Program
     {
+
         public static void Main()
         {
-            Dictionary<string, double> sideMenu = new Dictionary<string, double>()
+            Dictionary<string, double> sideMenu;
+            String order1;
+            String order2;
+
+            sideMenu = new Dictionary<string, double>()
             {
                 {"Sweet Potato Fries", 4.00},
                 {"Smoked Cheese Champ Mash", 4.00},
@@ -24,19 +29,28 @@ namespace Project
                 {"Vegan Soup", 6.00},
                 {"Cheese Roll", 2.50}
             };
-        
 
-         GetSides()
-        {
+            /*foreach (KeyValuePair<String, double> pair in sideMenu)
+            {
+                Console.WriteLine("{0}, {1:C}", pair.Key, pair.Value);
+            }
+            */
+
+            Console.WriteLine("Would you like any sides? \n\nWe have:");
             foreach (KeyValuePair<String, double> pair in sideMenu)
             {
                 Console.WriteLine("{0}, {1:C}", pair.Key, pair.Value);
             }
+            Console.WriteLine("");
+            order1 = Console.ReadLine();
+            Console.WriteLine("You have ordered " + order1 + ". Anything Else?");
+            order2 = Console.ReadLine();
+            Console.WriteLine("You have ordered " + order1 + ","+order2+ ". Anything Else?");
+
+
+
             Console.ReadLine();
         }
     }
-
-
-
 }
-}
+
