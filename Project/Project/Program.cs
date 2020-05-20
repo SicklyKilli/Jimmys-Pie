@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,20 +24,19 @@ namespace Project
                 {"Vegan Soup", 6.00},
                 {"Cheese Roll", 2.50}
             };
+        
 
+         GetSides()
+        {
             foreach (KeyValuePair<String, double> pair in sideMenu)
             {
-                Console.WriteLine("{0}, {1:C}",pair.Key, pair.Value);
-            }       
+                Console.WriteLine("{0}, {1:C}", pair.Key, pair.Value);
+            }
             Console.ReadLine();
         }
-
-
-        public static void Sides()
-        {
-
-        }
-
-
     }
+
+
+
+}
 }
