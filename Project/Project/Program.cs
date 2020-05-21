@@ -49,7 +49,7 @@ namespace Project
             questions[2] = "This might sound like a personal question ... Are you single or married? ";
             questions[3] = "What's your favourite colour? ";
             questions[4] = "You look familiar, what's your surname? ";
-            questions[5] = "By the way, Where were you born? ";
+            questions[5] = "By the way, where were you born? ";
             questions[6] = "Nice haircut you got there - How old are you? ";
             questions[7] = "Excuse me for asking ... What gender do you identify with, male or female? ";
             questions[8] = "What is your birth month? ";
@@ -93,10 +93,10 @@ namespace Project
                         links[quesNum] = links[quesNum].Replace("~", answers[quesNum].ToUpper());
                         chosen = true;
                     }
-                    else if ((answers[quesNum]!="0") && (extended[quesNum] == "0"))
+                    else if (extended[quesNum] == "0")
                     {
                         // Ask link/extended question instead
-                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
                         Console.Write("\n" + links[quesNum]);
                         extended[quesNum] = Console.ReadLine();
                         chosen = true;
