@@ -258,20 +258,14 @@ namespace Project
             //sides --------------------------------------------------------------------------------
             Console.WriteLine("And finally would you like any sides?\n");
             Console.WriteLine("We have: \n");
-
-            foreach (KeyValuePair<String, double> item in Sides)
+            foreach (KeyValuePair<String, double> pair in Sides)
             {
-                Console.WriteLine("$" + item.Key);
+                Console.WriteLine("{0}, {1:C}", pair.Key, pair.Value);
             }
-
-            Console.WriteLine("We have drinks, The sizes are small, medium or large");
-            Console.WriteLine("Cookies: Choc chip, M&M and Oat & Raisin");
-            Console.WriteLine("Muffins: Choc chip, Boysenberry and Banana\n");
             string sidesentered, sides = "";
             do
             {
                 sidesentered = Console.ReadLine();
-
                 sides = sides + " " + sidesentered;
                 Console.WriteLine("\nWould you like any other sides? (yes/no)");
                 temp = Console.ReadLine();
